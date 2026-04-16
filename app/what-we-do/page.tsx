@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { GraduationCap, Utensils, Heart, Laptop, Globe, Moon, ArrowRight, Users, Shield, CheckCircle } from "lucide-react";
+import { GraduationCap, Utensils, Heart, Laptop, Globe, Moon, ArrowRight, Users, Shield, CheckCircle, Heart as HeartSolid } from "lucide-react";
 
 const programs = [
   {
@@ -37,7 +37,7 @@ const programs = [
       "Support for food banks",
     ],
     impact: "2M+ meals distributed",
-    color: "from-[#246B73] to-[#2d8a94]",
+    color: "from-[#246B73] to-[#103B40]",
   },
   {
     id: "healthcare",
@@ -54,7 +54,7 @@ const programs = [
       "Emergency medical aid",
     ],
     impact: "10,000+ patients treated",
-    color: "from-[#130B40] to-[#2a1d7a]",
+    color: "from-[#246B73] to-[#00a0a8]",
   },
   {
     id: "digital",
@@ -71,7 +71,7 @@ const programs = [
       "Technology donations",
     ],
     impact: "2,000+ students trained",
-    color: "from-[#F2D7B6] to-[#f5e4cc]",
+    color: "from-[#F2D7B6] to-[#F2C4B3]",
   },
   {
     id: "global",
@@ -110,10 +110,10 @@ const programs = [
 ];
 
 const impactStats = [
-  { icon: Users, value: "15,000+", label: "Lives Impacted" },
-  { icon: Globe, value: "50+", label: "Countries" },
-  { icon: Shield, value: "100%", label: "Transparency" },
-  { icon: CheckCircle, value: "500+", label: "Projects Completed" },
+  { icon: Users, value: "15,000+", label: "Lives Impacted", color: "#F2856D" },
+  { icon: Globe, value: "50+", label: "Countries", color: "#246B73" },
+  { icon: Shield, value: "100%", label: "Transparency", color: "#F2D7B6" },
+  { icon: CheckCircle, value: "500+", label: "Projects Completed", color: "#F2C4B3" },
 ];
 
 export default function WhatWeDoPage() {
@@ -144,29 +144,32 @@ export default function WhatWeDoPage() {
 
   return (
     <div ref={sectionRef}>
-      <section className="pt-32 pb-20 bg-[#0D0829] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+      <section className="pt-32 pb-20 bg-[#0a0a0f] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#F2856D]/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#F2856D]/30 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="animate-fade-up animate-in opacity-0 inline-block text-[#246B73] text-sm font-semibold uppercase tracking-widest mb-4">
-            Our Work
+          <span className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
+            <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
+            <span className="text-[#F2D7B6]/80 text-sm font-medium">Our Work</span>
           </span>
-          <h1 className="animate-fade-up animate-in opacity-0 text-4xl md:text-5xl lg:text-6xl font-serif text-[#FAF7F2] mb-6">
+          <h1 className="animate-fade-up animate-in opacity-0 text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             What We Do
           </h1>
-          <p className="animate-fade-up animate-in opacity-0 text-[#B8B5AF] text-lg max-w-3xl mx-auto">
+          <p className="animate-fade-up animate-in opacity-0 text-[#F2D7B6]/70 text-lg max-w-3xl mx-auto">
             Comprehensive programs designed to uplift communities and create lasting positive change.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-[#130B40]">
+      <section className="py-20 md:py-32 bg-[#103B40]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="animate-fade-up animate-in opacity-0 inline-block text-[#246B73] text-sm font-semibold uppercase tracking-widest mb-4">
-              Our Programs
+            <span className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
+              <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
+              <span className="text-[#F2D7B6]/80 text-sm font-medium">Our Programs</span>
             </span>
-            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-serif text-[#FAF7F2]">
+            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-display text-white">
               Making an Impact
             </h2>
           </div>
@@ -186,28 +189,28 @@ export default function WhatWeDoPage() {
                       <program.icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-serif text-[#FAF7F2] mt-6 mb-2">
+                  <h3 className="text-2xl md:text-3xl font-display font-semibold text-white mt-6 mb-2">
                     {program.title}
                   </h3>
                   <p className={`text-lg font-medium mb-4 bg-gradient-to-r ${program.color} bg-clip-text text-transparent`}>
                     {program.tagline}
                   </p>
-                  <p className="text-[#B8B5AF] leading-relaxed mb-6">
+                  <p className="text-[#F2D7B6]/60 leading-relaxed mb-6">
                     {program.description}
                   </p>
-                  <div className="flex items-center gap-2 text-[#F2856D] font-medium">
-                    <span>Impact:</span>
-                    <span className="text-[#FAF7F2]">{program.impact}</span>
+                  <div className="flex items-center gap-2 font-medium">
+                    <span style={{ color: "#F2856D" }}>Impact:</span>
+                    <span className="text-white">{program.impact}</span>
                   </div>
                 </div>
 
-                <div className={`bg-[#0D0829] rounded-2xl p-8 border border-[#246B73]/20 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <h4 className="text-lg font-semibold text-[#FAF7F2] mb-6">What We Offer:</h4>
+                <div className={`glass-card rounded-2xl p-8 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <h4 className="text-lg font-display font-semibold text-white mb-6">What We Offer:</h4>
                   <ul className="space-y-4">
                     {program.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#F2856D] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#B8B5AF]">{feature}</span>
+                        <span className="text-[#F2D7B6]/60">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -218,53 +221,65 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-[#0D0829]">
+      <section className="py-20 md:py-32 bg-[#0a0a0f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="animate-fade-up animate-in opacity-0 inline-block text-[#246B73] text-sm font-semibold uppercase tracking-widest mb-4">
-              Our Reach
+            <span className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
+              <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
+              <span className="text-[#F2D7B6]/80 text-sm font-medium">Our Reach</span>
             </span>
-            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-serif text-[#FAF7F2]">
+            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-display text-white">
               Impact By The Numbers
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {impactStats.map((stat, index) => (
               <div
                 key={index}
-                className="animate-fade-up animate-in opacity-0 text-center bg-[#130B40] rounded-2xl p-8 border border-[#246B73]/20"
+                className="animate-fade-up animate-in opacity-0 text-center glass-card rounded-2xl p-8"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#F2856D]/20 to-[#F2C4B3]/20 flex items-center justify-center">
-                  <stat.icon className="w-8 h-8 text-[#F2856D]" />
+                <div 
+                  className="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center"
+                  style={{ background: `${stat.color}15`, border: `1px solid ${stat.color}30` }}
+                >
+                  <stat.icon className="w-8 h-8" style={{ color: stat.color }} />
                 </div>
-                <div className="text-3xl font-serif text-[#FAF7F2] mb-2">{stat.value}</div>
-                <div className="text-[#B8B5AF]">{stat.label}</div>
+                <div className="text-3xl font-display font-semibold text-white mb-2">{stat.value}</div>
+                <div className="text-[#F2D7B6]/50">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-gradient-to-br from-[#246B73] to-[#1a5058]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-serif text-white mb-6">
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#103B40] via-[#246B73]/30 to-[#0a0a0f]" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#F2856D]/50 to-transparent" />
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-display text-white mb-6">
             Ready to Make a Difference?
           </h2>
-          <p className="animate-fade-up animate-in opacity-0 text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+          <p className="animate-fade-up animate-in opacity-0 text-[#F2D7B6]/70 text-lg mb-10 max-w-2xl mx-auto">
             Your support enables us to continue our vital work. Every donation, no matter the size, helps us reach more people in need.
           </p>
           <div className="animate-fade-up animate-in opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/donate"
-              className="group bg-white text-[#246B73] px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 hover:shadow-xl transition-all hover:-translate-y-1"
+              className="group relative px-8 py-4 rounded-xl font-bold text-lg overflow-hidden"
             >
-              Donate Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="absolute inset-0 bg-gradient-to-r from-[#F2856D] to-[#F2C4B3] opacity-90" />
+              <span className="absolute inset-[2px] bg-[#0a0a0f] rounded-lg" />
+              <span className="relative z-10 flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#F2856D] to-[#F2D7B6]">
+                Donate Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#246B73] transition-all"
+              className="glass-card px-8 py-4 rounded-xl font-bold text-lg text-[#F2D7B6] hover:text-white hover:border-[#F2856D]/40 transition-all"
             >
               Get In Touch
             </Link>

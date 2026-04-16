@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Heart, Shield, CreditCard, Check, ArrowRight, RefreshCw, Gift, Users } from "lucide-react";
+import { Heart, Shield, CreditCard, Check, ArrowRight, RefreshCw, Gift, Users, Heart as HeartSolid } from "lucide-react";
 
 const presetAmounts = [
   { amount: 25, impact: "Provides school supplies for 1 child for a month" },
   { amount: 50, impact: "Feeds a family of 4 for one week" },
   { amount: 100, impact: "Covers medical treatment for 1 patient" },
-  { amount: 250, impact: "Sponsors a child&apos;s education for 3 months" },
+  { amount: 250, impact: "Sponsors a child's education for 3 months" },
 ];
 
 export default function DonatePage() {
@@ -53,30 +53,32 @@ export default function DonatePage() {
 
   return (
     <div ref={sectionRef}>
-      <section className="pt-32 pb-20 bg-[#0D0829] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+      <section className="pt-32 pb-20 bg-[#0a0a0f] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#F2856D]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#246B73]/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#F2856D]/30 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="animate-fade-up animate-in opacity-0 inline-block text-[#F2856D] text-sm font-semibold uppercase tracking-widest mb-4">
-            Make a Difference
+          <span className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
+            <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
+            <span className="text-[#F2D7B6]/80 text-sm font-medium">Make a Difference</span>
           </span>
-          <h1 className="animate-fade-up animate-in opacity-0 text-4xl md:text-5xl lg:text-6xl font-serif text-[#FAF7F2] mb-6">
+          <h1 className="animate-fade-up animate-in opacity-0 text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Donate Now
           </h1>
-          <p className="animate-fade-up animate-in opacity-0 text-[#B8B5AF] text-lg max-w-3xl mx-auto">
+          <p className="animate-fade-up animate-in opacity-0 text-[#F2D7B6]/70 text-lg max-w-3xl mx-auto">
             Your generous contribution helps us continue our mission to create positive change in communities around the world.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-[#130B40]">
+      <section className="py-20 md:py-32 bg-[#103B40]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
-              <div className="animate-fade-up animate-in opacity-0 bg-[#0D0829] rounded-2xl p-8 border border-[#246B73]/20">
-                <h2 className="text-2xl font-serif text-[#FAF7F2] mb-2">Select Amount</h2>
-                <p className="text-[#B8B5AF] mb-8">Choose a preset amount or enter a custom donation</p>
+              <div className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-8">
+                <h2 className="text-2xl font-display font-semibold text-white mb-2">Select Amount</h2>
+                <p className="text-[#F2D7B6]/60 mb-8">Choose a preset amount or enter a custom donation</p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                   {presetAmounts.map((preset) => (
@@ -89,11 +91,11 @@ export default function DonatePage() {
                       className={`relative p-6 rounded-xl border-2 transition-all text-left ${
                         selectedAmount === preset.amount && !customAmount
                           ? "border-[#F2856D] bg-[#F2856D]/10"
-                          : "border-[#246B73]/30 bg-[#130B40] hover:border-[#246B73]/50"
+                          : "border-[#246B73]/30 bg-[#0a0a0f]/50 hover:border-[#246B73]/50"
                       }`}
                     >
-                      <div className="text-2xl font-serif text-[#FAF7F2] mb-2">${preset.amount}</div>
-                      <div className="text-sm text-[#B8B5AF]">{preset.impact}</div>
+                      <div className="text-2xl font-display font-semibold text-white mb-2">${preset.amount}</div>
+                      <div className="text-sm text-[#F2D7B6]/50">{preset.impact}</div>
                       {selectedAmount === preset.amount && !customAmount && (
                         <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-[#F2856D] flex items-center justify-center">
                           <Check className="w-4 h-4 text-white" />
@@ -104,9 +106,9 @@ export default function DonatePage() {
                 </div>
 
                 <div className="mb-8">
-                  <label className="block text-[#B8B5AF] mb-2">Or enter custom amount</label>
+                  <label className="block text-[#F2D7B6]/60 mb-2">Or enter custom amount</label>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#B8B5AF] text-xl">$</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#F2D7B6]/50 text-xl">$</span>
                     <input
                       type="number"
                       value={customAmount}
@@ -115,7 +117,7 @@ export default function DonatePage() {
                         setSelectedAmount(null);
                       }}
                       placeholder="Enter amount"
-                      className="w-full bg-[#130B40] border border-[#246B73]/30 rounded-lg pl-10 pr-4 py-4 text-[#FAF7F2] text-xl placeholder-[#B8B5AF]/50 focus:outline-none focus:border-[#F2856D] transition-colors"
+                      className="w-full bg-[#0a0a0f] border border-[#246B73]/30 rounded-lg pl-10 pr-4 py-4 text-white text-xl placeholder-[#F2D7B6]/40 focus:outline-none focus:border-[#F2856D] transition-colors"
                     />
                   </div>
                 </div>
@@ -126,13 +128,13 @@ export default function DonatePage() {
                     className={`flex items-center gap-4 p-4 rounded-xl border-2 transition-all w-full ${
                       isRecurring
                         ? "border-[#F2856D] bg-[#F2856D]/10"
-                        : "border-[#246B73]/30 bg-[#130B40] hover:border-[#246B73]/50"
+                        : "border-[#246B73]/30 bg-[#0a0a0f]/50 hover:border-[#246B73]/50"
                     }`}
                   >
-                    <RefreshCw className={`w-6 h-6 ${isRecurring ? "text-[#F2856D]" : "text-[#B8B5AF]"}`} />
+                    <RefreshCw className={`w-6 h-6 ${isRecurring ? "text-[#F2856D]" : "text-[#F2D7B6]/50"}`} />
                     <div className="text-left">
-                      <div className="text-[#FAF7F2] font-medium">Make this a monthly donation</div>
-                      <div className="text-sm text-[#B8B5AF]">Your support will continue to make an impact</div>
+                      <div className="text-white font-medium">Make this a monthly donation</div>
+                      <div className="text-sm text-[#F2D7B6]/50">Your support will continue to make an impact</div>
                     </div>
                     {isRecurring && (
                       <div className="ml-auto w-6 h-6 rounded-full bg-[#F2856D] flex items-center justify-center">
@@ -143,32 +145,32 @@ export default function DonatePage() {
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                  <h3 className="text-xl font-serif text-[#FAF7F2] mb-4">Your Information</h3>
+                  <h3 className="text-xl font-display font-semibold text-white mb-4">Your Information</h3>
                   <div className="grid md:grid-cols-2 gap-4 mb-4">
                     <input
                       type="text"
                       placeholder="First Name"
                       required
-                      className="bg-[#130B40] border border-[#246B73]/30 rounded-lg px-4 py-3 text-[#FAF7F2] placeholder-[#B8B5AF]/50 focus:outline-none focus:border-[#F2856D] transition-colors"
+                      className="bg-[#0a0a0f] border border-[#246B73]/30 rounded-lg px-4 py-3 text-white placeholder-[#F2D7B6]/40 focus:outline-none focus:border-[#F2856D] transition-colors"
                     />
                     <input
                       type="text"
                       placeholder="Last Name"
                       required
-                      className="bg-[#130B40] border border-[#246B73]/30 rounded-lg px-4 py-3 text-[#FAF7F2] placeholder-[#B8B5AF]/50 focus:outline-none focus:border-[#F2856D] transition-colors"
+                      className="bg-[#0a0a0f] border border-[#246B73]/30 rounded-lg px-4 py-3 text-white placeholder-[#F2D7B6]/40 focus:outline-none focus:border-[#F2856D] transition-colors"
                     />
                   </div>
                   <input
                     type="email"
                     placeholder="Email Address"
                     required
-                    className="w-full bg-[#130B40] border border-[#246B73]/30 rounded-lg px-4 py-3 text-[#FAF7F2] placeholder-[#B8B5AF]/50 focus:outline-none focus:border-[#F2856D] transition-colors mb-4"
+                    className="w-full bg-[#0a0a0f] border border-[#246B73]/30 rounded-lg px-4 py-3 text-white placeholder-[#F2D7B6]/40 focus:outline-none focus:border-[#F2856D] transition-colors mb-4"
                   />
                   
                   <button
                     type="submit"
                     disabled={!donationAmount || isSubmitting}
-                    className="w-full bg-gradient-to-r from-[#F2856D] to-[#F2C4B3] text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-[#F2856D]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-[#F2856D] to-[#F2C4B3] text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-[#F2856D]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -187,18 +189,18 @@ export default function DonatePage() {
             </div>
 
             <div className="lg:col-span-2 space-y-6">
-              <div className="animate-fade-up animate-in opacity-0 bg-gradient-to-br from-[#246B73]/30 to-[#130B40] rounded-2xl p-8 border border-[#246B73]/20">
+              <div className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-8">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#F2856D]/20 to-[#F2C4B3]/20 flex items-center justify-center mb-6">
                   <Heart className="w-8 h-8 text-[#F2856D]" />
                 </div>
-                <h3 className="text-xl font-serif text-[#FAF7F2] mb-4">Your Impact</h3>
-                <div className="text-3xl font-serif text-[#F2856D] mb-4">
+                <h3 className="text-xl font-display font-semibold text-white mb-4">Your Impact</h3>
+                <div className="text-3xl font-display font-semibold text-[#F2856D] mb-4">
                   ${donationAmount || 0}
-                  {isRecurring && <span className="text-lg text-[#B8B5AF]">/month</span>}
+                  {isRecurring && <span className="text-lg text-[#F2D7B6]/50">/month</span>}
                 </div>
-                <p className="text-[#B8B5AF]">
+                <p className="text-[#F2D7B6]/60">
                   {donationAmount >= 250
-                    ? "Your donation will sponsor a child&apos;s education for 3 months, providing school supplies, meals, and learning materials."
+                    ? "Your donation will sponsor a child's education for 3 months, providing school supplies, meals, and learning materials."
                     : donationAmount >= 100
                     ? "Your donation will cover medical treatment for a patient in need, including medicines and follow-up care."
                     : donationAmount >= 50
@@ -209,10 +211,10 @@ export default function DonatePage() {
                 </p>
               </div>
 
-              <div className="animate-fade-up animate-in opacity-0 bg-[#0D0829] rounded-2xl p-6 border border-[#246B73]/20">
+              <div className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-[#246B73]" />
-                  <h3 className="text-lg font-semibold text-[#FAF7F2]">Trust & Security</h3>
+                  <h3 className="text-lg font-display font-semibold text-white">Trust & Security</h3>
                 </div>
                 <ul className="space-y-3">
                   {[
@@ -222,7 +224,7 @@ export default function DonatePage() {
                     "Verified 501(c)(3) nonprofit organization",
                     "Regular impact reports published",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[#B8B5AF] text-sm">
+                    <li key={i} className="flex items-start gap-2 text-[#F2D7B6]/60 text-sm">
                       <Check className="w-4 h-4 text-[#F2856D] flex-shrink-0 mt-0.5" />
                       {item}
                     </li>
@@ -230,16 +232,16 @@ export default function DonatePage() {
                 </ul>
               </div>
 
-              <div className="animate-fade-up animate-in opacity-0 bg-[#0D0829] rounded-2xl p-6 border border-[#246B73]/20">
+              <div className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <CreditCard className="w-6 h-6 text-[#246B73]" />
-                  <h3 className="text-lg font-semibold text-[#FAF7F2]">Payment Methods</h3>
+                  <h3 className="text-lg font-display font-semibold text-white">Payment Methods</h3>
                 </div>
                 <div className="flex gap-4">
                   {["Visa", "MC", "Amex", "PayPal"].map((method) => (
                     <div
                       key={method}
-                      className="px-4 py-2 bg-[#130B40] rounded-lg text-[#B8B5AF] text-sm font-medium"
+                      className="px-4 py-2 bg-[#0a0a0f]/50 rounded-lg text-[#F2D7B6]/60 text-sm font-medium"
                     >
                       {method}
                     </div>
@@ -247,12 +249,12 @@ export default function DonatePage() {
                 </div>
               </div>
 
-              <div className="animate-fade-up animate-in opacity-0 bg-gradient-to-r from-[#F2856D]/10 to-[#F2C4B3]/10 rounded-2xl p-6 border border-[#F2856D]/20">
+              <div className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-6" style={{ borderColor: "rgba(242, 133, 109, 0.2)" }}>
                 <div className="flex items-center gap-3 mb-3">
                   <Gift className="w-6 h-6 text-[#F2856D]" />
-                  <span className="text-[#FAF7F2] font-medium">Give as a Gift</span>
+                  <span className="text-white font-medium">Give as a Gift</span>
                 </div>
-                <p className="text-[#B8B5AF] text-sm">
+                <p className="text-[#F2D7B6]/60 text-sm">
                   Honor someone special with a donation in their name. We will send a printable card to your recipient.
                 </p>
               </div>
@@ -263,20 +265,20 @@ export default function DonatePage() {
 
       {submitted && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#130B40] rounded-2xl p-12 max-w-md mx-4 text-center border border-[#246B73]/20">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#F2856D] to-[#F2C4B3] flex items-center justify-center">
+          <div className="glass-card rounded-2xl p-12 max-w-md mx-4 text-center">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#F2856D] to-[#F2C4B3] flex items-center justify-center animate-pulse-glow">
               <Heart className="w-10 h-10 text-white fill-white" />
             </div>
-            <h2 className="text-2xl font-serif text-[#FAF7F2] mb-4">Thank You!</h2>
-            <p className="text-[#B8B5AF] mb-8">
+            <h2 className="text-2xl font-display font-semibold text-white mb-4">Thank You!</h2>
+            <p className="text-[#F2D7B6]/60 mb-8">
               Your generous donation of ${donationAmount} {isRecurring ? "monthly " : ""}will help us continue our mission to make a difference.
             </p>
-            <p className="text-[#B8B5AF] text-sm mb-8">
+            <p className="text-[#F2D7B6]/50 text-sm mb-8">
               A confirmation email has been sent to your inbox with your donation receipt.
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="bg-gradient-to-r from-[#F2856D] to-[#F2C4B3] text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:shadow-[#F2856D]/30 transition-all"
+              className="bg-gradient-to-r from-[#F2856D] to-[#F2C4B3] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#F2856D]/30 transition-all"
             >
               Close
             </button>
@@ -284,13 +286,14 @@ export default function DonatePage() {
         </div>
       )}
 
-      <section className="py-20 md:py-32 bg-[#0D0829]">
+      <section className="py-20 md:py-32 bg-[#0a0a0f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="animate-fade-up animate-in opacity-0 inline-block text-[#246B73] text-sm font-semibold uppercase tracking-widest mb-4">
-              Other Ways to Help
+            <span className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
+              <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
+              <span className="text-[#F2D7B6]/80 text-sm font-medium">Other Ways to Help</span>
             </span>
-            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-serif text-[#FAF7F2]">
+            <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl font-display text-white">
               Get Involved
             </h2>
           </div>
@@ -302,30 +305,39 @@ export default function DonatePage() {
                 title: "Volunteer",
                 description: "Share your time and skills to make a direct impact in your community.",
                 button: "Join as Volunteer",
+                color: "#F2856D",
               },
               {
                 icon: Gift,
                 title: "Fundraise",
-                description: "Start a fundraiser for Hope Foundation and rally your network to support our cause.",
+                description: "Start a fundraiser for AspireFoundation and rally your network to support our cause.",
                 button: "Start Fundraising",
+                color: "#246B73",
               },
               {
                 icon: Heart,
                 title: "Corporate Giving",
                 description: "Partner with us to create meaningful social impact through corporate social responsibility.",
                 button: "Partner With Us",
+                color: "#F2C4B3",
               },
             ].map((option, index) => (
               <div
                 key={index}
-                className="animate-fade-up animate-in opacity-0 bg-[#130B40] rounded-2xl p-8 border border-[#246B73]/20 hover:border-[#F2856D]/50 transition-all"
+                className="animate-fade-up animate-in opacity-0 glass-card rounded-2xl p-8 hover:-translate-y-1 transition-all"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#F2856D]/20 to-[#F2C4B3]/20 flex items-center justify-center mb-6">
-                  <option.icon className="w-7 h-7 text-[#F2856D]" />
+                <div 
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                  style={{ background: `${option.color}15`, border: `1px solid ${option.color}30` }}
+                >
+                  <option.icon className="w-7 h-7" style={{ color: option.color }} />
                 </div>
-                <h3 className="text-xl font-serif text-[#FAF7F2] mb-3">{option.title}</h3>
-                <p className="text-[#B8B5AF] mb-6">{option.description}</p>
-                <button className="w-full border-2 border-[#F2856D] text-[#F2856D] px-6 py-3 rounded-lg font-semibold hover:bg-[#F2856D] hover:text-white transition-all">
+                <h3 className="text-xl font-display font-semibold text-white mb-3">{option.title}</h3>
+                <p className="text-[#F2D7B6]/60 mb-6">{option.description}</p>
+                <button 
+                  className="w-full border-2 rounded-xl px-6 py-3 font-semibold transition-all hover:bg-[#F2856D] hover:border-[#F2856D] hover:text-white"
+                  style={{ borderColor: "#F2856D", color: "#F2856D" }}
+                >
                   {option.button}
                 </button>
               </div>
