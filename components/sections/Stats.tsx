@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Users, Heart, DollarSign, Utensils, Heart as HeartSolid } from "lucide-react";
+import { Users, Heart, DollarSign, Utensils } from "lucide-react";
 
 const stats = [
   {
@@ -9,14 +9,14 @@ const stats = [
     value: 500,
     suffix: "+",
     label: "Volunteers",
-    color: "#246B73",
+    color: "#103B40",
   },
   {
     icon: Heart,
     value: 15,
     suffix: "K+",
     label: "Children Helped",
-    color: "#F2856D",
+    color: "#246B73",
   },
   {
     icon: DollarSign,
@@ -24,14 +24,14 @@ const stats = [
     prefix: "$",
     suffix: "M+",
     label: "Funds Raised",
-    color: "#F2D7B6",
+    color: "#103B40",
   },
   {
     icon: Utensils,
     value: 2,
     suffix: "M+",
     label: "Meals Provided",
-    color: "#F2C4B3",
+    color: "#246B73",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[#0a0a0f] relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 md:py-32 bg-[#103B40] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#F2856D]/30 to-transparent" />
       
@@ -117,8 +117,8 @@ export default function Stats() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
-            <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
-            <span className="text-[#F2D7B6]/80 text-sm font-medium">Our Impact</span>
+            <Heart className="w-4 h-4 text-[#103B40] fill-[#103B40]" />
+            <span className="text-[#1a2e2f] text-sm font-medium">Our Impact</span>
           </div>
           <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl lg:text-5xl font-display text-white mb-4">
             Numbers That <span className="gradient-text-coral">Speak</span>

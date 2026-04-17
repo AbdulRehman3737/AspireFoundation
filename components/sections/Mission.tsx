@@ -1,44 +1,44 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Target, Heart, Globe, TrendingUp, Shield, HandHeart, Heart as HeartSolid } from "lucide-react";
+import { Target, Heart, Globe, TrendingUp, Shield, HandHeart } from "lucide-react";
 
 const missionPoints = [
   {
     icon: Target,
     title: "Our Mission",
     description: "To provide free education, accessible healthcare, hunger relief, and global humanitarian aid to those in need.",
-    color: "#246B73",
+    color: "#103B40",
   },
   {
     icon: HandHeart,
     title: "Empowerment",
     description: "Through vocational training and community support, we empower individuals to achieve self-sufficiency.",
-    color: "#F2856D",
+    color: "#246B73",
   },
   {
     icon: Globe,
     title: "Global Impact",
     description: "With the help of our team, volunteers, and supporters, we strive to bring hope, dignity, and happiness worldwide.",
-    color: "#00a0a8",
+    color: "#103B40",
   },
   {
     icon: TrendingUp,
     title: "Sustainability",
     description: "We focus on long-term solutions that create lasting change in communities.",
-    color: "#8b5cf6",
+    color: "#246B73",
   },
   {
     icon: Shield,
     title: "Integrity",
     description: "Every donation is handled with transparency and used efficiently for maximum impact.",
-    color: "#f59e0b",
+    color: "#103B40",
   },
   {
     icon: Heart,
     title: "Compassion",
     description: "We treat every individual with dignity and work from a place of genuine care.",
-    color: "#ff6b6b",
+    color: "#246B73",
   },
 ];
 
@@ -79,8 +79,8 @@ export default function Mission() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="animate-fade-up animate-in opacity-0 inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-6">
-            <Heart className="w-4 h-4 text-[#F2856D] fill-[#F2856D]" />
-            <span className="text-[#F2D7B6]/80 text-sm font-medium">What Drives Us</span>
+            <Heart className="w-4 h-4 text-[#103B40] fill-[#103B40]" />
+            <span className="text-[#1a2e2f] text-sm font-medium">What Drives Us</span>
           </div>
           <h2 className="animate-fade-up animate-in opacity-0 text-3xl md:text-4xl lg:text-5xl font-display text-white">
             Mission <span className="gradient-text-coral">Statement</span>
@@ -95,12 +95,12 @@ export default function Mission() {
             >
               <div 
                 className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                style={{ background: `${point.color}15`, border: `1px solid ${point.color}30` }}
+                style={{ background: `${point.color}20`, border: `1px solid ${point.color}40` }}
               >
                 <point.icon className="w-7 h-7" style={{ color: point.color }} />
               </div>
-              <h3 className="text-xl font-display font-semibold text-white mb-3">{point.title}</h3>
-              <p className="text-[#F2D7B6]/50 leading-relaxed">{point.description}</p>
+              <h3 className="text-xl font-display font-semibold text-[#1a2e2f] mb-3">{point.title}</h3>
+              <p className="text-[#4a6266] leading-relaxed">{point.description}</p>
             </div>
           ))}
         </div>

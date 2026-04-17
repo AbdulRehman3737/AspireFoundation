@@ -17,19 +17,19 @@ export default function SectionTitle({
     <div className={`mb-12 ${centered ? "text-center" : ""}`}>
       {eyebrow && (
         <span className={`inline-block text-sm font-semibold uppercase tracking-widest mb-4 ${
-          light ? "text-[#F2D7B6]" : "text-[#246B73]"
+          light ? "text-[#F2D7B6]" : "text-[#F2856D]"
         }`}>
           {eyebrow}
         </span>
       )}
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-serif mb-4 ${
-        light ? "text-[#FAF7F2]" : "text-[#FAF7F2]"
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-display mb-4 ${
+        light ? "text-white" : "text-[#2D2926]"
       }`}>
         {title}
       </h2>
       {description && (
         <p className={`text-lg max-w-2xl ${centered ? "mx-auto" : ""} ${
-          light ? "text-[#F2D7B6]/80" : "text-[#B8B5AF]"
+          light ? "text-white/80" : "text-[#6B635B]"
         }`}>
           {description}
         </p>
